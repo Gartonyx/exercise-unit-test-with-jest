@@ -1,28 +1,23 @@
-const sum =(a,b)=>{
-    return a+b
-}
-
-console.log(sum(7,3))
-module.exports ={sum};
-
+const sum = (a, b) => {
+    return a + b;
+};
 
 let oneEuroIs = {
-    "JPY": 156.5, // japan yen
-    "USD": 1.07, // us dollar
-    "GBP": 0.87, // british pound
-}
+    JPY: 156.5, // yen japonés
+    USD: 1.07,  // dólar
+    GBP: 0.87   // libra
+};
 
-const fromDollarToYen =(dolarAm)=>{
-    return (dolarAm/oneEuroIs.USD)*156.5
+const fromDollarToYen = (dollarAm) => {
+    return (dollarAm / oneEuroIs.USD) * oneEuroIs.JPY;
+};
 
-}
-const fromEuroToDollar =(euroAm)=>{
-    return euroAm*oneEuroIs.USD
-}
-const fromYenToPound =(yenAm)=>{
-    
-    let valueInPound=(valueInPound.JPY)*oneEuroIs.GBP
-    return valueInPound;
-}
+const fromEuroToDollar = (euroAm) => {
+    return euroAm * oneEuroIs.USD;
+};
 
-module.exports={sum,fromDollarToYen,fromEuroToDollar,fromYenToPound};
+const fromYenToPound = (yenAm) => {
+    return (yenAm / oneEuroIs.JPY) * oneEuroIs.GBP;
+};
+
+module.exports = {sum,fromDollarToYen,fromEuroToDollar,fromYenToPound};

@@ -1,24 +1,22 @@
-const {sum, fromDollarToYen, fromEuroToDollar} =require('./app.js');
+const {sum,fromDollarToYen,fromEuroToDollar,fromYenToPound
+} = require('./app.js');
 
-test('adds 14 +9 to equal 23',()=>{
-
-    let total =sum(14,9);
+test('adds 14 + 9 to equal 23', () => {
+    let total = sum(14, 9);
     expect(total).toBe(23);
 });
 
-test("1 Euro should be 1.07 Dollar",function(){
-    let cambioEuroDollar = fromEuroToDollar(1)
+test("1 Euro should be 1.07 Dollar", () => {
+    let cambioEuroDollar = fromEuroToDollar(1);
     expect(cambioEuroDollar).toBe(1.07);
-})
+});
 
-test("3.5 Euro to be 3.75 Dollar",()=>{
-    let cambioEuroDollar = fromEuroToDollar(3.5)
-    let resultado=3.5
-    expect(cambioEuroDollar).toBe(resultado);
-})
+test("1 Dollar should be 156.5 Yen", () => {
+    let cambioDolarYen = fromDollarToYen(1);
+    expect(cambioDolarYen).toBeCloseTo(156.5 / 1.07, 5);
+});
 
-test("5 Euro to be 782.5 Yenes",()=>{
-    let totalEsperado =5/1.07
-    let resultado=fromDollarToYen(5)
-    expect(total).toBe(resultado);
-})
+test("1 Yen should be 0.00556 GBP", () => {
+    let cambioYenLibra = fromYenToPound(1);
+    expect(cambioYenLibra).toBeCloseTo(0.00556, 5);
+});
